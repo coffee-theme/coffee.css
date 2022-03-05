@@ -16,6 +16,8 @@ This is a simple bootstrap for coffee theme for HTML and CSS,
 <link rel="stylesheet" href="/path/to/coffee.min.css" />
 ```
 
+Same process goes for [coffee.css](/css/coffee.css)
+
 ## Hosted on GitHub
 
 Add either of these to your HTML `<head>` tag:
@@ -37,5 +39,3 @@ Add either of these to your HTML `<head>` tag:
     href="https://raw.githubusercontent.com/coffee-theme/coffee.css/main/css/coffee.css"
 />
 ```
-
-#### Same processes go for [coffee.css](/css/coffee.css)
