@@ -1,23 +1,156 @@
-* {
-    background-color: #262220;
-    color: #f9f6e8;
-    font-family: Hack, hack, monospace, sans, opensans, sans-serif;
+:root {
+    color-scheme: dark;
+
+    --clr-bg: #262220;
+    --clr-fg: #f9f6e8;
+
+    --clr-blockquote-fg: #e6e0c8;
+    --clr-blockquote-bg: #ede9d3;
+
+    --blockquote-width: 2px;
+
+    --clr-code-bg: #1f1b1a;
+    --clr-code-fg: #f0f3e6;
+    --clr-code-bg-dark: #181414;
+
+    --clr-link: #cdc4c4; /* #9e9b9b; */
+
+    --scrollbar-height: 6px; /* TODO: Firefox */
 }
 
-body {
-    padding: 2rem;
+*,
+*::before,
+*::after {
+    background-color: var(--clr-bg);
+    color: var(--clr-fg);
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    scrollbar-color: var(--clr-code-bg-dark) transparent;
 }
 
-h1 {
-    text-align: center;
-    margin: 1em;
+::-webkit-scrollbar {
+    background-color: transparent;
 }
 
-li {
-    margin: 0.5em;
+::-webkit-scrollbar-thumb {
+    background-color: var(--clr-code-bg-dark);
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none !important;
 }
 
 a {
     text-decoration: none;
-    text-shadow: 0px 0px 6px white;
+    color: var(--clr-link);
+    font-style: italic;
+}
+
+a:focus,
+a:hover {
+    text-decoration: underline;
+}
+
+pre,
+pre * {
+    background-color: var(--clr-code-bg);
+}
+
+pre,
+pre *,
+code {
+    color: var(--clr-code-fg);
+}
+
+pre,
+pre code {
+    overflow-x: auto !important;
+
+    scrollbar-width: initial;
+    -ms-overflow-style: initial;
+}
+
+pre {
+    padding: 1em;
+    border-radius: 4px;
+}
+
+code:not(pre code),
+time {
+    background-color: var(--clr-code-bg);
+    border-radius: 2px;
+    padding: 0.2em;
+}
+
+blockquote {
+    margin: 10px 0;
+    overflow: hidden;
+    padding: 0 0 0 20px;
+    font-weight: 100;
+    position: relative;
+}
+
+blockquote:before {
+    content: "";
+    border-left: var(--blockquote-width) solid var(--clr-blockquote-bg);
+    position: absolute;
+    bottom: 14px;
+    top: 13px;
+    left: 0;
+}
+
+blockquote,
+blockquote * {
+    color: var(--clr-blockquote-fg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        -webkit-animation-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+
+        -webkit-animation-iteration-count: 1 !important;
+        animation-iteration-count: 1 !important;
+
+        -webkit-transition-duration: 0.01ms !important;
+        -o-transition-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (prefers-contrast: more) {
+    :root {
+        --clr-bg: #000000;
+        --clr-fg: #ffffff;
+
+        --clr-blockquote-fg: #ededed;
+        --clr-blockquote-bg: #868e91;
+
+        --clr-code-bg: #090909;
+        --clr-code-fg: #f0f0f0;
+
+        --clr-link: #a9c4d1;
+
+        --blockquote-width: 4px;
+
+        --scrollbar-height: initial; /* TODO: Firefox */
+    }
+
+    html::-webkit-scrollbar {
+        display: initial !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scrollbar-width: initial !important;
+        -ms-overflow-style: initial !important;
+    }
 }
